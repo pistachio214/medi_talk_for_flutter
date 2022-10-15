@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
+import 'package:medi_talk_for_flutter/lang/routers.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
+import 'package:medi_talk_for_flutter/utils/shared_preferences_util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class InputState {
   final bool invalid;
@@ -22,6 +25,11 @@ class _LoginState extends State<Login> {
   late InputState username = InputState();
 
   late InputState password = InputState();
+
+  void _loginSystem() {
+    SharedPreferencesUtil.preferences.setString("token", "12323");
+    Navigator.pushNamed(context, Routers.MAIN);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +167,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () => _loginSystem(),
                     child: Text(
                       "Log In",
                       style: TextStyle(
