@@ -127,8 +127,7 @@ class _LoginState extends State<Login> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     style: ButtonStyle(
-                      overlayColor:
-                      MaterialStateProperty.resolveWith((states) {
+                      overlayColor: MaterialStateProperty.resolveWith((states) {
                         return Colors.transparent;
                       }),
                     ),
@@ -171,47 +170,42 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(
-              alignment: Alignment.bottomCenter,
-              margin: const EdgeInsets.symmetric(horizontal: 25),
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text(
-                      "Haven't any account?",
-                      style: TextStyle(
-                        color: Color.fromRGBO(25, 59, 104, 0.7),
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                      ),
-                    ),
-                    TextButton(
-                      style: ButtonStyle(
-                        overlayColor:
-                            MaterialStateProperty.resolveWith((states) {
-                          return Colors.transparent;
-                        }),
-                      ),
-                      onPressed: () {
-                        LogsUtil.info("前往注册");
-                      },
-                      child: const Text(
-                        "Sign Up",
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  margin: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text(
+                        "Haven't any account?",
                         style: TextStyle(
+                          color: Color.fromRGBO(25, 59, 104, 0.7),
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                         ),
                       ),
-                    )
-                  ],
+                      TextButton(
+                        style: ButtonStyle(
+                          overlayColor:
+                              MaterialStateProperty.resolveWith((states) {
+                            return Colors.transparent;
+                          }),
+                        ),
+                        onPressed: () {
+                          LogsUtil.info("前往注册");
+                        },
+                        child: const Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ],
