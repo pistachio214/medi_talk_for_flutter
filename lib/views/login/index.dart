@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 
+class InputState {
+  final bool invalid = false;
+
+  final String value = "";
+}
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -10,6 +16,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  late InputState username = InputState();
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -63,7 +71,15 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 Container(
-                  child: Text("账号密码区域"),
+                  color: Colors.red,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: '用户名',
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10),
+                      errorText: username.invalid ? '请输入用户名' : null,
+                    ),
+                  ),
                 )
               ],
             ),
