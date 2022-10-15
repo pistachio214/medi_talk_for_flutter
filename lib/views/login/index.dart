@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
       child: Column(
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 40),
             child: Image.asset(
               "assets/images/logo.png",
               fit: BoxFit.fitWidth,
