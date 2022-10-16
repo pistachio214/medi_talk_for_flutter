@@ -37,14 +37,29 @@ class _HomeState extends State<Home> {
                     width: 270,
                     height: 150,
                     decoration: BoxDecoration(
-                      color: Colors.deepOrangeAccent,
                       borderRadius: BorderRadius.circular(15),
                       image: const DecorationImage(
                         image: AssetImage("assets/images/system/banner-bg.png"),
                         fit: BoxFit.fill,
                       ),
                     ),
-                    child: Image.asset("assets/images/landing1.png"),
+                    child: Container(
+                      margin: const EdgeInsets.only(
+                        left: 10,
+                        right: 10,
+                        top: 10,
+                      ),
+                      color: Colors.deepOrangeAccent,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            child: Text("13123123"),
+                          ),
+                          Image.asset("assets/images/landing1.png")
+                        ],
+                      ) ,
+                    ),
                   );
                 },
                 duration: 3000,
