@@ -28,18 +28,19 @@ class _MainState extends State<Main> {
             actions: <Widget>[
               Container(
                 margin: const EdgeInsets.only(right: 15),
-                child: Icon(
-                  Icons.search,
-                  color: Colors.red,
-                  size: 24,
+                child: Image.asset(
+                  "assets/images/system/search.png",
+                  width: 20,
+                  height: 20,
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(right: 15),
-                child: Icon(
-                  Icons.cached,
-                  color: Colors.red,
-                  size: 24,
+                child: Image.asset(
+                  "assets/images/system/notification.png",
+                  width: 24,
+                  height: 24,
+                  fit: BoxFit.fill,
                 ),
               ),
             ],
