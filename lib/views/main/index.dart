@@ -22,7 +22,9 @@ class _MainState extends State<Main> {
               color: Colors.amber,
               width: 200,
               height: 55,
-              child: const Text("!3213"),
+              child: Row(
+
+              ),
             ),
             leadingWidth: 0,
             actions: <Widget>[
@@ -30,17 +32,16 @@ class _MainState extends State<Main> {
                 margin: const EdgeInsets.only(right: 15),
                 child: Image.asset(
                   "assets/images/system/search.png",
-                  width: 20,
-                  height: 20,
+                  width: 24,
+                  height: 24,
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(right: 15),
+                margin: const EdgeInsets.only(right: 20),
                 child: Image.asset(
                   "assets/images/system/notification.png",
                   width: 24,
                   height: 24,
-                  fit: BoxFit.fill,
                 ),
               ),
             ],
