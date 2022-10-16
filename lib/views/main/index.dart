@@ -26,7 +26,9 @@ class _MainState extends State<Main> {
 
   final List<Widget> tabBodies = <Widget>[
     const Home(),
-    const Home(),
+    const Center(
+      child: Text("医生界面"),
+    ),
   ];
 
   void _onTapHander(int index) {
