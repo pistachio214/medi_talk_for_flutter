@@ -39,6 +39,10 @@ class _HomeState extends State<Home> {
                     decoration: BoxDecoration(
                       color: Colors.deepOrangeAccent,
                       borderRadius: BorderRadius.circular(15),
+                      image: const DecorationImage(
+                        image: AssetImage("assets/images/system/banner-bg.png"),
+                        fit: BoxFit.fill,
+                      ),
                     ),
                     child: Image.asset("assets/images/landing1.png"),
                   );
