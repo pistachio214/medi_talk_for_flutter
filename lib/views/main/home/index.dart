@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper_view/flutter_swiper_view.dart';
-import 'package:medi_talk_for_flutter/utils/color_util.dart';
-import 'package:medi_talk_for_flutter/utils/logs_util.dart';
+import 'package:medi_talk_for_flutter/widgets/main/home/doctor_banner_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/user_and_notification_widget.dart';
 
 class Home extends StatefulWidget {
@@ -24,54 +22,7 @@ class _HomeState extends State<Home> {
           // banner container
           Container(
             margin: const EdgeInsets.only(top: 25),
-            color: Colors.lightBlueAccent,
-            child: SizedBox(
-              height: 150,
-              child: Swiper(
-                key: UniqueKey(),
-                index: 0,
-                itemCount: 4,
-                autoplay: false,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 270,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/system/banner-bg.png"),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    child: Container(
-                      margin: const EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        top: 10,
-                      ),
-                      color: Colors.deepOrangeAccent,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            child: Text("13123123"),
-                          ),
-                          Image.asset("assets/images/landing1.png")
-                        ],
-                      ) ,
-                    ),
-                  );
-                },
-                duration: 3000,
-                viewportFraction: 0.8,
-                scale: 0.8,
-                pagination: null,
-                control: null,
-                onTap: (int index) {
-                  LogsUtil.info("点击的轮播图");
-                },
-              ),
-            ),
+            child: const DoctorBannerWidget(),
           )
         ],
       ),
