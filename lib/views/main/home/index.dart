@@ -79,7 +79,6 @@ class _HomeState extends State<Home> {
                               ],
                             ),
                           ),
-
                           SizedBox(
                             width: size.width - 25 * 2,
                             height: 95,
@@ -94,7 +93,6 @@ class _HomeState extends State<Home> {
                                     ListView.builder(
                                       itemBuilder:
                                           (BuildContext context, int index) {
-
                                         double rightMargin = 10;
                                         if (index == (10 - 1)) {
                                           rightMargin = 0;
@@ -110,16 +108,36 @@ class _HomeState extends State<Home> {
                                           ),
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            borderRadius: BorderRadius.circular(10),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
-                                          child: Center(
+                                          alignment: Alignment.center,
+                                          child: SizedBox(
+                                            height: 45,
+                                            width: 50,
                                             child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: <Widget>[
-
+                                                Image.asset(
+                                                  "assets/images/heart.png",
+                                                  width: 25,
+                                                  height: 20,
+                                                  fit: BoxFit.fitHeight,
+                                                ),
+                                                Text(
+                                                  "Cardiology",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 10,
+                                                    color: ColorUtil.hexToColor(
+                                                        "#193B68"),
+                                                  ),
+                                                )
                                               ],
                                             ),
                                           ),
-
                                         );
                                       },
                                       itemCount: 10,
