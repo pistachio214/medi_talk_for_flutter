@@ -6,6 +6,9 @@ class Routers {
   /// 登录界面
   static String LOGIN = 'login';
 
+  /// 注册界面
+  static String SIGN_UP = 'sign_up';
+
   /// main界面
   static String MAIN = '/';
 }

@@ -5,16 +5,19 @@ import 'package:medi_talk_for_flutter/lang/routers.dart';
 import 'package:medi_talk_for_flutter/views/landing/index.dart';
 import 'package:medi_talk_for_flutter/views/login/index.dart';
 import 'package:medi_talk_for_flutter/views/main/index.dart';
+import 'package:medi_talk_for_flutter/views/signup/index.dart';
 
 final Map<String, Function> routes = {
   Routers.LANDING: (context) => const Landing(),
   Routers.LOGIN: (context) => const Login(),
+  Routers.SIGN_UP: (context) => const Signup(),
   Routers.MAIN: (context) => const Main(),
 };
 
 final List<String> noValidationRouters = <String>[
   Routers.LANDING,
   Routers.LOGIN,
+  Routers.SIGN_UP,
 ];
 
 var onGenerateRoute = (RouteSettings settings) {
@@ -25,8 +28,7 @@ var onGenerateRoute = (RouteSettings settings) {
 
   if (pageContentBuilder != null) {
     // 判断是否第一次打开App(打开引导页)
-    bool? firstOpenStatus =
-        SharedPreferencesUtil.preferences.getBool("fistOpen");
+    bool? firstOpenStatus = SharedPreferencesUtil.preferences.getBool("fistOpen");
     if (firstOpenStatus == null || !firstOpenStatus) {
       return MaterialPageRoute(builder: (context) => const Landing());
     }
@@ -48,8 +50,7 @@ var onGenerateRoute = (RouteSettings settings) {
         },
       );
     } else {
-      route =
-          MaterialPageRoute(builder: (context) => pageContentBuilder(context));
+      route = MaterialPageRoute(builder: (context) => pageContentBuilder(context));
     }
 
     return route;
