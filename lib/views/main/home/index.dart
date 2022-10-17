@@ -114,7 +114,7 @@ class _HomeState extends State<Home> {
                                           alignment: Alignment.center,
                                           child: SizedBox(
                                             height: 45,
-                                            width: 50,
+                                            width: 60,
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -133,6 +133,7 @@ class _HomeState extends State<Home> {
                                                     fontSize: 10,
                                                     color: ColorUtil.hexToColor(
                                                         "#193B68"),
+                                                    overflow: TextOverflow.ellipsis,
                                                   ),
                                                 )
                                               ],
