@@ -4,12 +4,13 @@ import 'package:medi_talk_for_flutter/lang/routers.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 import 'package:medi_talk_for_flutter/utils/shared_preferences_util.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:medi_talk_for_flutter/widgets/from/login_and_sign_input_widget.dart';
+import 'package:medi_talk_for_flutter/widgets/from/state/login_and_sign_input_state.dart';
 
 class InputState {
-  final bool invalid;
+  late bool invalid;
 
-  final String value;
+  late final String value;
 
   InputState({this.invalid = false, this.value = ""});
 }
@@ -22,13 +23,35 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  late InputState username = InputState();
+  // 全局key 用来获取Form表单组件
+  final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
 
-  late InputState password = InputState();
+  late LoginAndSignInputState usernameState = LoginAndSignInputState(
+    placeholder: "E-mail Address",
+    required: true,
+    // validator: (String? value) {
+    //   return value != null && value.isNotEmpty ? null : "Please enter the username";
+    // },
+  );
+
+  late LoginAndSignInputState passwordState = LoginAndSignInputState(
+    placeholder: "Password",
+    password: true,
+    validator: (String? value) {
+      return value != null && value.isNotEmpty ? null : "Please enter the Password";
+    },
+  );
 
   void _loginSystem() {
-    SharedPreferencesUtil.preferences.setString("token", "12323");
-    Navigator.pushNamed(context, Routers.MAIN);
+
+    var loginForm = loginKey.currentState;
+    if (loginForm != null && loginForm.validate()) {
+      loginForm.save();
+      LogsUtil.info("${usernameState.value} --- ${passwordState.value}");
+
+      SharedPreferencesUtil.preferences.setString("token", "12323");
+      Navigator.pushNamed(context, Routers.MAIN);
+    }
   }
 
   @override
@@ -88,46 +111,21 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  child: TextField(
-                    maxLength: 18,
-                    maxLines: 1,
-                    decoration: InputDecoration(
-                      hintText: 'E-mail Address',
-                      hintStyle: const TextStyle(
-                        color: Color.fromRGBO(25, 59, 104, 0.5),
-                      ),
-                      border: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color.fromRGBO(25, 59, 104, 0.2),
-                          width: 1.5,
+                SizedBox(
+                  child: Form(
+                    key: loginKey,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 15),
+                          child: LoginAndSignInputWidget(signInputState: usernameState),
                         ),
-                      ),
-                      counterText: "",
-                      errorText: username.invalid ? '请输入用户名' : null,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  child: TextField(
-                    maxLength: 18,
-                    maxLines: 1,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Password',
-                      hintStyle: const TextStyle(
-                        color: Color.fromRGBO(25, 59, 104, 0.5),
-                      ),
-                      border: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color.fromRGBO(25, 59, 104, 0.2),
-                          width: 1.5,
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 15),
+                          child: LoginAndSignInputWidget(signInputState: passwordState),
                         ),
-                      ),
-                      counterText: "",
-                      errorText: password.invalid ? '请输入密码' : null,
+                      ],
                     ),
                   ),
                 ),
@@ -194,8 +192,7 @@ class _LoginState extends State<Login> {
                       ),
                       TextButton(
                         style: ButtonStyle(
-                          overlayColor:
-                              MaterialStateProperty.resolveWith((states) {
+                          overlayColor: MaterialStateProperty.resolveWith((states) {
                             return Colors.transparent;
                           }),
                         ),
