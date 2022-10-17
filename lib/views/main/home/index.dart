@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
 
                     // Categories
                     Container(
-                      height: 125,
+                      height: 130,
                       width: size.width,
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       margin: const EdgeInsets.only(top: 15),
@@ -70,7 +70,8 @@ class _HomeState extends State<Home> {
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 14,
-                                        color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                                        color: ColorUtil.hexToColor(
+                                            Const.defaultSystemThemeColor),
                                       ),
                                     ),
                                   ),
@@ -78,6 +79,7 @@ class _HomeState extends State<Home> {
                               ],
                             ),
                           ),
+
                           SizedBox(
                             width: size.width - 25 * 2,
                             height: 95,
@@ -86,79 +88,45 @@ class _HomeState extends State<Home> {
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
-                                    // ListView.builder(
-                                    //   itemBuilder: (BuildContext context, int index) {
-                                    //     return Container(
-                                    //       width: 80,
-                                    //       height: 75,
-                                    //       margin: const EdgeInsets.only(top: 15),
-                                    //       color: Colors.purpleAccent,
-                                    //     );
-                                    //   },
-                                    //   itemCount: 3,
-                                    //   shrinkWrap: true,
-                                    // ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
-                                    ),
-                                    Container(
-                                      width: 80,
-                                      height: 75,
-                                      margin: const EdgeInsets.only(top: 15),
-                                      color: Colors.purpleAccent,
+                                    ListView.builder(
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+
+                                        double rightMargin = 10;
+                                        if (index == (10 - 1)) {
+                                          rightMargin = 0;
+                                        }
+
+                                        return Container(
+                                          key: UniqueKey(),
+                                          width: 80,
+                                          height: 75,
+                                          margin: EdgeInsets.only(
+                                            top: 15,
+                                            right: rightMargin,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(10),
+                                          ),
+                                          child: Center(
+                                            child: Column(
+                                              children: <Widget>[
+
+                                              ],
+                                            ),
+                                          ),
+
+                                        );
+                                      },
+                                      itemCount: 10,
+                                      scrollDirection: Axis.horizontal,
+                                      shrinkWrap: true,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
                                     ),
                                   ],
                                 ),
