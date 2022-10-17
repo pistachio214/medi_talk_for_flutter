@@ -18,7 +18,7 @@ class _UserAndNotificationWidgetState extends State<UserAndNotificationWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      height: 65,
       width: widget.size.width,
       padding: const EdgeInsets.symmetric(horizontal: 25),
       margin: const EdgeInsets.only(top: 20),
@@ -44,6 +44,7 @@ class _UserAndNotificationWidgetState extends State<UserAndNotificationWidget> {
                 ),
                 Container(
                   width: 150,
+                  height: 55,
                   margin: const EdgeInsets.only(left: 15),
                   child: Column(
                     children: <Widget>[

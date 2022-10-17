@@ -35,7 +35,7 @@ class MediTalkApp extends StatelessWidget {
         primarySwatch: ColorUtil.createMaterialColor(
           ColorUtil.hexToColor(Const.defaultSystemThemeColor),
         ),
-        // backgroundColor: const Color(0xffFFFFFF),
+        backgroundColor: ColorUtil.hexToColor("#F6FAFF"),
       ),
       initialRoute: Routers.MAIN,
       onGenerateRoute: onGenerateRoute,

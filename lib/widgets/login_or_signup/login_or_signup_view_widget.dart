@@ -43,160 +43,157 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
 
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
-          color: ColorUtil.hexToColor("#F6FAFF"),
-          child: Column(
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(top: 40),
-                child: Image.asset(
-                  "assets/images/logo.png",
-                  fit: BoxFit.fitWidth,
-                  width: 100,
-                ),
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(top: 40),
+              child: Image.asset(
+                "assets/images/logo.png",
+                fit: BoxFit.fitWidth,
+                width: 100,
               ),
-              RichText(
-                text: TextSpan(
-                  text: "medi",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 17,
-                    color: ColorUtil.hexToColor("#193B68"),
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "talk",
+            ),
+            RichText(
+              text: TextSpan(
+                text: "medi",
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 17,
+                  color: ColorUtil.hexToColor("#193B68"),
+                ),
+                children: [
+                  TextSpan(
+                    text: "talk",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 17,
+                      color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              width: size.width,
+              margin: const EdgeInsets.only(
+                left: 25,
+                right: 25,
+                top: 40,
+                bottom: 15,
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    margin: const EdgeInsets.symmetric(vertical: 15),
+                    child: Text(
+                      widget.title,
                       style: TextStyle(
+                        color: ColorUtil.hexToColor("#193B68"),
                         fontWeight: FontWeight.w800,
-                        fontSize: 17,
-                        color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                width: size.width,
-                margin: const EdgeInsets.only(
-                  left: 25,
-                  right: 25,
-                  top: 40,
-                  bottom: 15,
-                ),
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.bottomLeft,
-                      margin: const EdgeInsets.symmetric(vertical: 15),
-                      child: Text(
-                        widget.title,
-                        style: TextStyle(
-                          color: ColorUtil.hexToColor("#193B68"),
-                          fontWeight: FontWeight.w800,
-                          fontSize: 24,
-                        ),
+                        fontSize: 24,
                       ),
                     ),
-                    SizedBox(
-                      child: widget.formWidget,
-                    ),
-                    Visibility(
-                      visible: widget.forgetVisible,
-                      child: Container(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          style: ButtonStyle(
-                            overlayColor: MaterialStateProperty.resolveWith((states) {
-                              return Colors.transparent;
-                            }),
-                          ),
-                          onPressed: () {
-                            if (widget.forgetFunction != null) {
-                              widget.forgetFunction!();
-                            }
-                          },
-                          child: const Text(
-                            'Forget?',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 15),
-                      width: size.width - 50,
-                      height: 55,
-                      decoration: BoxDecoration(
-                        color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
-                        borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      ),
+                  ),
+                  SizedBox(
+                    child: widget.formWidget,
+                  ),
+                  Visibility(
+                    visible: widget.forgetVisible,
+                    child: Container(
+                      alignment: Alignment.centerRight,
                       child: TextButton(
                         style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                            const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                            ),
-                          ),
+                          overlayColor: MaterialStateProperty.resolveWith((states) {
+                            return Colors.transparent;
+                          }),
                         ),
-                        onPressed: () => widget.actionButtonFunction(),
-                        child: Text(
-                          widget.actionButtonText,
+                        onPressed: () {
+                          if (widget.forgetFunction != null) {
+                            widget.forgetFunction!();
+                          }
+                        },
+                        child: const Text(
+                          'Forget?',
                           style: TextStyle(
-                            color: ColorUtil.hexToColor("#FFFFFF"),
                             fontWeight: FontWeight.w700,
-                            fontSize: 18,
+                            fontSize: 14,
                           ),
                         ),
                       ),
                     ),
-                    Visibility(
-                      visible: widget.forgetVisible,
-                      child: Container(
-                        alignment: Alignment.bottomCenter,
-                        margin: const EdgeInsets.symmetric(horizontal: 25),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            const Text(
-                              "Haven't any account?",
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 15),
+                    width: size.width - 50,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: TextButton(
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                        ),
+                      ),
+                      onPressed: () => widget.actionButtonFunction(),
+                      child: Text(
+                        widget.actionButtonText,
+                        style: TextStyle(
+                          color: ColorUtil.hexToColor("#FFFFFF"),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: widget.forgetVisible,
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Text(
+                            "Haven't any account?",
+                            style: TextStyle(
+                              color: Color.fromRGBO(25, 59, 104, 0.7),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                            ),
+                          ),
+                          TextButton(
+                            style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.resolveWith((states) {
+                                return Colors.transparent;
+                              }),
+                            ),
+                            onPressed: () {
+                              LogsUtil.info("前往注册");
+                              if (widget.accountFunction != null) {
+                                widget.accountFunction!();
+                              }
+                            },
+                            child: const Text(
+                              "Sign Up",
                               style: TextStyle(
-                                color: Color.fromRGBO(25, 59, 104, 0.7),
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                               ),
                             ),
-                            TextButton(
-                              style: ButtonStyle(
-                                overlayColor: MaterialStateProperty.resolveWith((states) {
-                                  return Colors.transparent;
-                                }),
-                              ),
-                              onPressed: () {
-                                LogsUtil.info("前往注册");
-                                if (widget.accountFunction != null) {
-                                  widget.accountFunction!();
-                                }
-                              },
-                              child: const Text(
-                                "Sign Up",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
+                          )
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
