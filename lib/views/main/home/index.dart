@@ -20,160 +20,167 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            // 头像和通知栏
-            UserAndNotificationWidget(size: size),
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 5),
+          child: Column(
+            children: <Widget>[
+              // 头像和通知栏
+              UserAndNotificationWidget(size: size),
 
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.only(top: 15),
-                      child: const DoctorBannerWidget(),
-                    ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        margin: const EdgeInsets.only(top: 15),
+                        child: const DoctorBannerWidget(),
+                      ),
 
-                    // Categories
-                    Container(
-                      height: 130,
-                      width: size.width,
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      margin: const EdgeInsets.only(top: 15),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          SizedBox(
-                            width: size.width - 25 * 2,
-                            height: 30,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                SizedBox(
-                                  child: Text(
-                                    "Categories",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 24,
-                                      color: ColorUtil.hexToColor("#193B68"),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  child: InkWell(
-                                    onTap: () {
-                                      LogsUtil.info("全部分类");
-                                    },
+                      // Categories
+                      Container(
+                        height: 130,
+                        width: size.width,
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        margin: const EdgeInsets.only(top: 15),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            SizedBox(
+                              width: size.width - 25 * 2,
+                              height: 30,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  SizedBox(
                                     child: Text(
-                                      "View All",
+                                      "Categories",
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 14,
-                                        color: ColorUtil.hexToColor(
-                                            Const.defaultSystemThemeColor),
+                                        fontSize: 24,
+                                        color: ColorUtil.hexToColor("#193B68"),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: size.width - 25 * 2,
-                            height: 95,
-                            child: ScrollConfiguration(
-                              behavior: NoShadowScrollBehaviorHandle(),
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    ListView.builder(
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        double rightMargin = 10;
-                                        if (index == (10 - 1)) {
-                                          rightMargin = 0;
-                                        }
-
-                                        return Container(
-                                          key: UniqueKey(),
-                                          width: 80,
-                                          height: 75,
-                                          margin: EdgeInsets.only(
-                                            top: 15,
-                                            right: rightMargin,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: SizedBox(
-                                            height: 45,
-                                            width: 60,
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: <Widget>[
-                                                Image.asset(
-                                                  "assets/images/heart.png",
-                                                  width: 25,
-                                                  height: 20,
-                                                  fit: BoxFit.fitHeight,
-                                                ),
-                                                Text(
-                                                  "Cardiology",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 10,
-                                                    color: ColorUtil.hexToColor(
-                                                        "#193B68"),
-                                                    overflow: TextOverflow.ellipsis,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        );
+                                  SizedBox(
+                                    child: InkWell(
+                                      onTap: () {
+                                        LogsUtil.info("全部分类");
                                       },
-                                      itemCount: 10,
-                                      scrollDirection: Axis.horizontal,
-                                      shrinkWrap: true,
-                                      physics:
-                                          const NeverScrollableScrollPhysics(),
+                                      child: Text(
+                                        "View All",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 14,
+                                          color: ColorUtil.hexToColor(
+                                              Const.defaultSystemThemeColor),
+                                        ),
+                                      ),
                                     ),
-                                  ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: size.width - 25 * 2,
+                              height: 95,
+                              child: ScrollConfiguration(
+                                behavior: NoShadowScrollBehaviorHandle(),
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      ListView.builder(
+                                        itemBuilder:
+                                            (BuildContext context, int index) {
+                                          double rightMargin = 10;
+                                          if (index == (10 - 1)) {
+                                            rightMargin = 0;
+                                          }
+
+                                          return Container(
+                                            key: UniqueKey(),
+                                            width: 80,
+                                            height: 75,
+                                            margin: EdgeInsets.only(
+                                              top: 15,
+                                              right: rightMargin,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: SizedBox(
+                                              height: 45,
+                                              width: 60,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: <Widget>[
+                                                  Image.asset(
+                                                    "assets/images/heart.png",
+                                                    width: 25,
+                                                    height: 20,
+                                                    fit: BoxFit.fitHeight,
+                                                  ),
+                                                  Text(
+                                                    "Cardiology",
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 10,
+                                                      color:
+                                                          ColorUtil.hexToColor(
+                                                              "#193B68"),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        itemCount: 10,
+                                        scrollDirection: Axis.horizontal,
+                                        shrinkWrap: true,
+                                        physics:
+                                            const NeverScrollableScrollPhysics(),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
 
-                    Container(
-                      height: 150,
-                      width: size.width,
-                      color: Colors.blue,
-                      margin: const EdgeInsets.only(top: 15),
-                    ),
+                      Container(
+                        height: 150,
+                        width: size.width,
+                        color: Colors.blue,
+                        margin: const EdgeInsets.only(top: 15),
+                      ),
 
-                    Container(
-                      height: 350,
-                      width: size.width,
-                      color: Colors.blue,
-                      margin: const EdgeInsets.only(top: 15),
-                    ),
-                  ],
+                      Container(
+                        height: 350,
+                        width: size.width,
+                        color: Colors.blue,
+                        margin: const EdgeInsets.only(top: 15),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
