@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medi_talk_for_flutter/views/main/doctor/index.dart';
 import 'package:medi_talk_for_flutter/views/main/home/index.dart';
 import 'package:medi_talk_for_flutter/widgets/main/main_bottom_navigation_bar_widget.dart';
 
@@ -26,9 +27,7 @@ class _MainState extends State<Main> {
 
   final List<Widget> tabBodies = <Widget>[
     const Home(),
-    const Center(
-      child: Text("医生界面"),
-    ),
+    const Doctor(),
   ];
 
   void _onTapHander(int index) {
