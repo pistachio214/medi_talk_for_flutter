@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_star/custom_rating.dart';
 import 'package:flutter_star/flutter_star.dart';
+import 'package:medi_talk_for_flutter/lang/routers.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 
@@ -22,6 +23,7 @@ class DoctorItemWidget extends StatefulWidget {
 class _DoctorItemWidgetState extends State<DoctorItemWidget> {
   void _doctorDetail() {
     LogsUtil.info("doctor detail");
+    Navigator.pushNamed(context, Routers.DOCTOR_DETAIL);
   }
 
   @override

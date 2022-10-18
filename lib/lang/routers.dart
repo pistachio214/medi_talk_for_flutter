@@ -11,4 +11,7 @@ class Routers {
 
   /// main界面
   static String MAIN = '/';
+
+  /// 医生详情
+  static String DOCTOR_DETAIL = 'doctor_detail';
 }
