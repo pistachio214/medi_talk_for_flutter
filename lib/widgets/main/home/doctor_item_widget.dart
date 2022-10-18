@@ -29,7 +29,7 @@ class _DoctorItemWidgetState extends State<DoctorItemWidget> {
     return Container(
       key: UniqueKey(),
       width: widget.size.width - 25 * 2,
-      height: 80,
+      height: 100,
       margin: EdgeInsets.only(top: widget.topMargin),
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -45,7 +45,7 @@ class _DoctorItemWidgetState extends State<DoctorItemWidget> {
           children: <Widget>[
             Container(
               width: 80,
-              height: 60,
+              height: 80,
               alignment: Alignment.bottomCenter,
               margin: const EdgeInsets.only(
                 top: 10,
@@ -58,8 +58,8 @@ class _DoctorItemWidgetState extends State<DoctorItemWidget> {
               ),
               child: Image.asset(
                 "assets/images/doctor-item.png",
-                width: 60,
-                height: 55,
+                width: 80,
+                height: 70,
                 fit: BoxFit.fitHeight,
               ),
             ),

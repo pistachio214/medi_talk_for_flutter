@@ -42,6 +42,8 @@ class _TopDoctorWarpWidgetState extends State<TopDoctorWarpWidget> {
                 ),
                 SizedBox(
                   child: InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () {
                       LogsUtil.info("全部分类");
                     },
