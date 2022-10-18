@@ -129,8 +129,9 @@ class _DoctorState extends State<Doctor> {
               ),
             ),
             Container(
-              height: size.height - 160,
+              height: size.height - 175,
               width: size.width - 25 * 2,
+              padding: const EdgeInsets.only(bottom: 10),
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
