@@ -93,29 +93,50 @@ class _DoctorItemWidgetState extends State<DoctorItemWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-
+                        Image.asset(
+                          "assets/images/system/location.png",
+                          width: 15,
+                          height: 15,
+                          fit: BoxFit.fitHeight,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 5),
+                          child: const Text(
+                            "Olmstead Rd",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                              color: Color.fromRGBO(25, 59, 104, 0.8),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   )
                 ],
               ),
             ),
+
             Container(
               width: 80,
               height: 60,
               alignment: Alignment.centerLeft,
               margin: const EdgeInsets.only(right: 15),
-              child: CustomRating(
-                score: 3,
-                max: 5,
-                star: Star(
-                  num: 5,
-                  fat: 0.5,
-                  size: 15,
-                  emptyColor: const Color(0xffe7e8ea),
-                  fillColor: ColorUtil.hexToColor("#FFBB23"),
+              child: AbsorbPointer(  // AbsorbPointer禁止点击星星功能
+                child: CustomRating(
+                  score: 3,
+                  max: 5,
+                  star: Star(
+                    num: 5,
+                    fat: 0.5,
+                    size: 15,
+                    emptyColor: const Color(0xffe7e8ea),
+                    fillColor: ColorUtil.hexToColor("#FFBB23"),
+                  ),
+                  onRating: (_) {
+                    LogsUtil.info("$_");
+                  },
                 ),
-                onRating: (_) {},
               ),
             ),
           ],

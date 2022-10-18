@@ -96,17 +96,19 @@ class _DoctorItemWidgetState extends State<DoctorItemWidget> {
               height: 60,
               alignment: Alignment.centerLeft,
               margin: const EdgeInsets.only(right: 15),
-              child: CustomRating(
-                score: 3,
-                max: 5,
-                star: Star(
-                  num: 5,
-                  fat: 0.5,
-                  size: 15,
-                  emptyColor: const Color(0xffe7e8ea),
-                  fillColor: ColorUtil.hexToColor("#FFBB23"),
+              child: AbsorbPointer(
+                child: CustomRating(
+                  score: 3,
+                  max: 5,
+                  star: Star(
+                    num: 5,
+                    fat: 0.5,
+                    size: 15,
+                    emptyColor: const Color(0xffe7e8ea),
+                    fillColor: ColorUtil.hexToColor("#FFBB23"),
+                  ),
+                  onRating: (_) {},
                 ),
-                onRating: (_) {},
               ),
             ),
           ],

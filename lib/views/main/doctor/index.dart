@@ -105,7 +105,11 @@ class _DoctorState extends State<Doctor> {
                               borderRadius: const BorderRadius.all(Radius.circular(10)),
                             ),
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  selectKey = selfIndex;
+                                });
+                              },
                               child: Text(
                                 "Pediatrician",
                                 style: TextStyle(
