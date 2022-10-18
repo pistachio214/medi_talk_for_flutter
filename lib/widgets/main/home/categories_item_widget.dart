@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
+import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 
 class CategoriesItemWidget extends StatefulWidget {
   const CategoriesItemWidget({
@@ -20,6 +21,10 @@ class CategoriesItemWidget extends StatefulWidget {
 }
 
 class _CategoriesItemWidgetState extends State<CategoriesItemWidget> {
+  void _categoriesDetail() {
+    LogsUtil.info("categories info");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,29 +39,34 @@ class _CategoriesItemWidgetState extends State<CategoriesItemWidget> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
       ),
-      alignment: Alignment.center,
-      child: SizedBox(
-        height: 45,
-        width: 60,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Image.asset(
-              widget.imgUrl,
-              width: 25,
-              height: 20,
-              fit: BoxFit.fitHeight,
-            ),
-            Text(
-              widget.title,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 10,
-                color: ColorUtil.hexToColor("#193B68"),
-                overflow: TextOverflow.ellipsis,
+      child: TextButton(
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all(EdgeInsets.zero),
+        ),
+        onPressed: () => _categoriesDetail(),
+        child: SizedBox(
+          height: 45,
+          width: 60,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Image.asset(
+                widget.imgUrl,
+                width: 25,
+                height: 20,
+                fit: BoxFit.fitHeight,
               ),
-            )
-          ],
+              Text(
+                widget.title,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 10,
+                  color: ColorUtil.hexToColor("#193B68"),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
