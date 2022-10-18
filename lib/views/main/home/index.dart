@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
+import 'package:medi_talk_for_flutter/widgets/main/home/categories_warp_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/doctor_banner_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/user_and_notification_widget.dart';
 
@@ -37,8 +37,10 @@ class _HomeState extends State<Home> {
                       ),
 
                       // Categories
+                      const CategoriesWarpWidget(),
+
+                      // Top Doctor
                       Container(
-                        height: 130,
                         width: size.width,
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         margin: const EdgeInsets.only(top: 15),
@@ -49,13 +51,12 @@ class _HomeState extends State<Home> {
                               width: size.width - 25 * 2,
                               height: 30,
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   SizedBox(
                                     child: Text(
-                                      "Categories",
+                                      "Top Doctor",
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 24,
@@ -73,8 +74,8 @@ class _HomeState extends State<Home> {
                                         style: TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 14,
-                                          color: ColorUtil.hexToColor(
-                                              Const.defaultSystemThemeColor),
+                                          color:
+                                              ColorUtil.hexToColor(Const.defaultSystemThemeColor),
                                         ),
                                       ),
                                     ),
@@ -82,98 +83,71 @@ class _HomeState extends State<Home> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            Container(
                               width: size.width - 25 * 2,
-                              height: 95,
-                              child: ScrollConfiguration(
-                                behavior: NoShadowScrollBehaviorHandle(),
-                                child: SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      ListView.builder(
-                                        itemBuilder:
-                                            (BuildContext context, int index) {
-                                          double rightMargin = 10;
-                                          if (index == (10 - 1)) {
-                                            rightMargin = 0;
-                                          }
-
-                                          return Container(
-                                            key: UniqueKey(),
-                                            width: 80,
-                                            height: 75,
-                                            margin: EdgeInsets.only(
-                                              top: 15,
-                                              right: rightMargin,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: SizedBox(
-                                              height: 45,
-                                              width: 60,
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: <Widget>[
-                                                  Image.asset(
-                                                    "assets/images/heart.png",
-                                                    width: 25,
-                                                    height: 20,
-                                                    fit: BoxFit.fitHeight,
-                                                  ),
-                                                  Text(
-                                                    "Cardiology",
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 10,
-                                                      color:
-                                                          ColorUtil.hexToColor(
-                                                              "#193B68"),
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        itemCount: 10,
-                                        scrollDirection: Axis.horizontal,
-                                        shrinkWrap: true,
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                      ),
-                                    ],
+                              margin: const EdgeInsets.only(top: 15),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: size.width - 25 * 2,
+                                    height: 80,
+                                    alignment: Alignment.topLeft,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 80,
+                                          height: 60,
+                                          margin: const EdgeInsets.only(
+                                            top: 10,
+                                            left: 10,
+                                            bottom: 10,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: ColorUtil.hexToColor("#D0E4FF"),
+                                            borderRadius:
+                                                const BorderRadius.all(Radius.circular(10)),
+                                          ),
+                                          child: ,
+                                        ),
+                                        Container(
+                                          child: Text("名字"),
+                                        ),
+                                        Container(
+                                          child: Text("星级"),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
+                                  Container(
+                                    child: Text("第一个"),
+                                  ),
+                                  Container(
+                                    child: Text("第一个"),
+                                  ),
+                                  Container(
+                                    child: Text("第一个"),
+                                  ),
+                                  Container(
+                                    child: Text("第一个"),
+                                  ),
+                                  Container(
+                                    child: Text("第一个"),
+                                  ),
+                                  Container(
+                                    child: Text("第一个"),
+                                  ),
+                                ],
                               ),
-                            ),
+                            )
                           ],
                         ),
-                      ),
-
-                      Container(
-                        height: 150,
-                        width: size.width,
-                        color: Colors.blue,
-                        margin: const EdgeInsets.only(top: 15),
-                      ),
-
-                      Container(
-                        height: 350,
-                        width: size.width,
-                        color: Colors.blue,
-                        margin: const EdgeInsets.only(top: 15),
                       ),
                     ],
                   ),
