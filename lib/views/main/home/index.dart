@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_star/flutter_star.dart';
-import 'package:medi_talk_for_flutter/lang/const.dart';
-import 'package:medi_talk_for_flutter/utils/color_util.dart';
-import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/categories_warp_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/doctor_banner_widget.dart';
-import 'package:medi_talk_for_flutter/widgets/main/home/doctor_item_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/top_doctor_warp_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/user_and_notification_widget.dart';
 
