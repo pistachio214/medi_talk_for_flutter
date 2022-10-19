@@ -16,25 +16,26 @@ class _DoctorDetailState extends State<DoctorDetail> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
+    final double statusBarTopHeight = MediaQuery.of(context).padding.top;
+    final double statusBarBottomHeight = MediaQuery.of(context).padding.bottom;
 
     return Scaffold(
       backgroundColor: ColorUtil.hexToColor("#D0E4FF"),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
-          margin: EdgeInsets.only(top: statusBarHeight),
+          margin: EdgeInsets.only(top: statusBarTopHeight),
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: size.height - statusBarHeight,
+                height: size.height - statusBarTopHeight,
                 child: Stack(
                   children: <Widget>[
                     Align(
                       alignment: Alignment.topCenter,
                       child: Container(
                         width: size.width,
-                        height: 260 - statusBarHeight,
+                        height: 260 - statusBarTopHeight,
                         decoration: BoxDecoration(
                           color: ColorUtil.hexToColor("#D0E4FF"),
                         ),
@@ -69,7 +70,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                     Positioned(
                       top: 185,
                       child: Container(
-                        height: size.height - statusBarHeight - 185,
+                        height: size.height - statusBarTopHeight - 185,
                         width: size.width,
                         padding: const EdgeInsets.only(
                           left: 24,
@@ -267,7 +268,10 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                   ),
                                 ),
                                 Container(
-                                  margin: const EdgeInsets.only(top: 30, bottom: 20),
+                                  margin: EdgeInsets.only(
+                                    top: 30,
+                                    bottom: statusBarBottomHeight + 15,
+                                  ),
                                   width: size.width - 25 * 2,
                                   height: 55,
                                   decoration: BoxDecoration(
