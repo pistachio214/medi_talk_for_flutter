@@ -42,8 +42,6 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    SharedPreferencesUtil.preferences.setBool("fistOpen", true);
-
     _tabController.addListener(() {
       if (_tabController.index == (listLanding.length - 1)) {
         setState(() {
@@ -102,6 +100,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   ),
                   onPressed: () {
                     if (_tabController.index == (listLanding.length - 1)) {
+                      SharedPreferencesUtil.preferences.setBool("fistOpen", true);
                       Navigator.of(context).pushNamed(Routers.MAIN);
                     } else {
                       int index = _tabController.index;
