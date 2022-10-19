@@ -54,6 +54,8 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         margin: const EdgeInsets.only(left: 12),
                         decoration: const BoxDecoration(),
                         child: IconButton(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           style: ButtonStyle(
                             overlayColor: MaterialStateProperty.resolveWith((states) {
                               return Colors.transparent;
