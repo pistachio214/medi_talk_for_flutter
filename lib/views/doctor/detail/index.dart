@@ -48,7 +48,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                       ),
                     ),
                     Positioned(
-                      top: 10,
+                      top: 5,
                       child: Container(
                         height: 25,
                         width: 25,
