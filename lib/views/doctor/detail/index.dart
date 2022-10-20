@@ -58,10 +58,12 @@ class _DoctorDetailState extends State<DoctorDetail> {
                       ),
                     ),
                     Positioned(
+                      top: 7.0,
+                      left: 0.5,
                       child: Container(
                         height: 25,
                         width: 25,
-                        margin: const EdgeInsets.only(left: 12),
+                        margin: const EdgeInsets.only(left: 10),
                         decoration: const BoxDecoration(),
                         child: IconButton(
                           splashColor: Colors.transparent,
