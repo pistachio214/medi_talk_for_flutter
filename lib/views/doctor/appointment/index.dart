@@ -9,7 +9,6 @@ class DoctorAppointment extends StatefulWidget {
 }
 
 class _DoctorAppointmentState extends State<DoctorAppointment> {
-
   // 上一页
   void _prevView() {
     Navigator.of(context).pop();
@@ -17,6 +16,8 @@ class _DoctorAppointmentState extends State<DoctorAppointment> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -37,12 +38,67 @@ class _DoctorAppointmentState extends State<DoctorAppointment> {
         ),
       ),
       backgroundColor: Const.defaultBarAndBodyThemColor,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Center(
-            child: Text("apple"),
+      body: Container(
+        padding: const EdgeInsets.only(left: 25, right: 25, bottom: 10),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      width: 155,
+                      height: 55,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(EdgeInsets.zero),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Hospital",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                            color: Const.defaultFontColor,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Container(
+                      width: 155,
+                      height: 55,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(EdgeInsets.zero),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Online",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                            color: Const.defaultFontColor,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
