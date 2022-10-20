@@ -30,13 +30,12 @@ class _TopDoctorWarpWidgetState extends State<TopDoctorWarpWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   child: Text(
                     "Top Doctor",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 24,
-                      color: ColorUtil.hexToColor("#193B68"),
                     ),
                   ),
                 ),
@@ -52,7 +51,7 @@ class _TopDoctorWarpWidgetState extends State<TopDoctorWarpWidget> {
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
-                        color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                        color: Const.defaultSystemThemeColor,
                       ),
                     ),
                   ),

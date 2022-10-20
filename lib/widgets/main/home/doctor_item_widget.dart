@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_star/custom_rating.dart';
 import 'package:flutter_star/flutter_star.dart';
+import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 
@@ -53,7 +53,7 @@ class _DoctorItemWidgetState extends State<DoctorItemWidget> {
                 bottom: 10,
               ),
               decoration: BoxDecoration(
-                color: ColorUtil.hexToColor("#D0E4FF"),
+                color: Const.defaultBarAndBodyThemColor,
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
               ),
               child: Image.asset(
@@ -75,9 +75,9 @@ class _DoctorItemWidgetState extends State<DoctorItemWidget> {
                   Text(
                     "Chatars Nal",
                     style: TextStyle(
-                      color: ColorUtil.hexToColor("#193B68"),
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
+                      color: Const.defaultFontColor,
                     ),
                   ),
                   const Text(

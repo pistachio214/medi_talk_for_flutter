@@ -73,7 +73,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
               child: TabPageSelector(
                 controller: _tabController,
                 selectedColor:
-                    ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                    Const.defaultSystemThemeColor,
                 indicatorSize: 12,
                 color: const Color.fromRGBO(0, 0, 0, 0.17),
               ),
@@ -87,7 +87,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                 width: 260,
                 height: 55,
                 decoration: BoxDecoration(
-                  color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                  color: Const.defaultSystemThemeColor,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
                 child: TextButton(

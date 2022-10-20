@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
-import 'package:medi_talk_for_flutter/utils/color_util.dart';
 
 class MainBottomNavigationBarWidget extends StatefulWidget {
   const MainBottomNavigationBarWidget({
@@ -57,7 +56,7 @@ class _MainBottomNavigationBarWidgetState
             // 类型设置(一旦超过4个,type会发生变化,所以最好设置一下)
             type: BottomNavigationBarType.fixed,
             // 设置bar激活时的颜色
-            fixedColor: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+            fixedColor: Const.defaultSystemThemeColor,
             // 选择时的key
             currentIndex: _currentIndex,
             onTap: (int index) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 
 class UserAndNotificationWidget extends StatefulWidget {
@@ -10,8 +11,7 @@ class UserAndNotificationWidget extends StatefulWidget {
   final Size size;
 
   @override
-  State<UserAndNotificationWidget> createState() =>
-      _UserAndNotificationWidgetState();
+  State<UserAndNotificationWidget> createState() => _UserAndNotificationWidgetState();
 }
 
 class _UserAndNotificationWidgetState extends State<UserAndNotificationWidget> {
@@ -56,16 +56,16 @@ class _UserAndNotificationWidgetState extends State<UserAndNotificationWidget> {
                               style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 24,
-                                color: ColorUtil.hexToColor("#193B68"),
+                                color: Const.defaultFontColor,
                               ),
-                              children: <InlineSpan>[
+                              children: const <InlineSpan>[
                                 TextSpan(
-                                    text: "Ferdous",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 24,
-                                      color: ColorUtil.hexToColor("#193B68"),
-                                    ))
+                                  text: "Ferdous",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 24,
+                                  ),
+                                )
                               ]),
                         ),
                       ),

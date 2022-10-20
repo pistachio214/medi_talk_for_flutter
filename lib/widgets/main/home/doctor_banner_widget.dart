@@ -12,9 +12,8 @@ class DoctorBannerWidget extends StatefulWidget {
 }
 
 class _DoctorBannerWidgetState extends State<DoctorBannerWidget> {
-
   // 构建banner中的医生组件
-  Widget _buildDoctorWidget(){
+  Widget _buildDoctorWidget() {
     return Container(
       width: 270,
       height: 150,
@@ -98,10 +97,8 @@ class _DoctorBannerWidgetState extends State<DoctorBannerWidget> {
                         width: 36,
                         height: 36,
                         decoration: BoxDecoration(
-                          color: ColorUtil.hexToColor(
-                              Const.defaultSystemThemeColor),
-                          borderRadius:
-                          BorderRadius.circular(100),
+                          color: Const.defaultSystemThemeColor,
+                          borderRadius: BorderRadius.circular(100),
                         ),
                         child: const Icon(
                           Icons.chevron_right,

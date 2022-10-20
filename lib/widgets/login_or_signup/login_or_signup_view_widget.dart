@@ -47,11 +47,7 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.only(top: 40),
-              child: Image.asset(
-                "assets/images/logo.png",
-                fit: BoxFit.fitWidth,
-                width: 100,
-              ),
+              child: Const.defaultSystemLogo,
             ),
             RichText(
               text: TextSpan(
@@ -59,7 +55,7 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
                 style: TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 17,
-                  color: ColorUtil.hexToColor("#193B68"),
+                  color: Const.defaultFontColor,
                 ),
                 children: [
                   TextSpan(
@@ -67,7 +63,7 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
                     style: TextStyle(
                       fontWeight: FontWeight.w800,
                       fontSize: 17,
-                      color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                      color: Const.defaultSystemThemeColor,
                     ),
                   )
                 ],
@@ -89,7 +85,6 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
                     child: Text(
                       widget.title,
                       style: TextStyle(
-                        color: ColorUtil.hexToColor("#193B68"),
                         fontWeight: FontWeight.w800,
                         fontSize: 24,
                       ),
@@ -128,7 +123,7 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
                     width: size.width - 50,
                     height: 55,
                     decoration: BoxDecoration(
-                      color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                      color: Const.defaultSystemThemeColor,
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                     ),
                     child: TextButton(

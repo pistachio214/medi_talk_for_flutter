@@ -14,4 +14,7 @@ class Routers {
 
   /// 医生详情
   static String DOCTOR_DETAIL = 'doctor_detail';
+
+  /// 向医生下单界面
+  static String DOCTOR_APPOINTMENT = 'doctor_appointment';
 }

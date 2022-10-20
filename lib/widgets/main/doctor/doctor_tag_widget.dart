@@ -59,7 +59,6 @@ class _DoctorTagWidgetState extends State<DoctorTagWidget> {
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 18,
-                      color: ColorUtil.hexToColor("#193B68"),
                     ),
                   ),
                 ),

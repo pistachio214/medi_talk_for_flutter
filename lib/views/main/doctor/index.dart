@@ -24,7 +24,6 @@ class _DoctorState extends State<Doctor> {
         title: Text(
           "Speclialist",
           style: TextStyle(
-            color: ColorUtil.hexToColor("#193B68"),
             fontWeight: FontWeight.w700,
             fontSize: 24,
           ),
@@ -33,7 +32,6 @@ class _DoctorState extends State<Doctor> {
         elevation: 0,
         backgroundColor: ColorUtil.hexToColor("#F6FAFF"),
         leading: IconButton(
-          color: ColorUtil.hexToColor("#193B68"),
           icon: const BackButtonIcon(),
           onPressed: () {},
         ),
@@ -89,7 +87,7 @@ class _DoctorState extends State<Doctor> {
 
                           if (selectKey == selfIndex) {
                             defaultBackgroundColor =
-                                ColorUtil.hexToColor(Const.defaultSystemThemeColor);
+                                Const.defaultSystemThemeColor;
                             defaultLabelColor = Colors.white;
                           }
                           if (selfIndex == 10) {

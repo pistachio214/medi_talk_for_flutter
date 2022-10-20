@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medi_talk_for_flutter/utils/color_util.dart';
+import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 
 class CategoriesItemWidget extends StatefulWidget {
@@ -61,8 +61,8 @@ class _CategoriesItemWidgetState extends State<CategoriesItemWidget> {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 10,
-                  color: ColorUtil.hexToColor("#193B68"),
                   overflow: TextOverflow.ellipsis,
+                  color: Const.defaultFontColor,
                 ),
               )
             ],

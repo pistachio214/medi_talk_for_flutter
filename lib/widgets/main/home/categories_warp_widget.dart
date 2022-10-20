@@ -38,7 +38,6 @@ class _CategoriesWarpWidgetState extends State<CategoriesWarpWidget> {
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 24,
-                      color: ColorUtil.hexToColor("#193B68"),
                     ),
                   ),
                 ),
@@ -54,7 +53,7 @@ class _CategoriesWarpWidgetState extends State<CategoriesWarpWidget> {
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
-                        color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                        color: Const.defaultSystemThemeColor,
                       ),
                     ),
                   ),

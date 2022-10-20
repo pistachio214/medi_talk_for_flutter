@@ -32,10 +32,21 @@ class MediTalkApp extends StatelessWidget {
     return MaterialApp(
       title: Const.defaultSystemName,
       theme: ThemeData(
-        primarySwatch: ColorUtil.createMaterialColor(
-          ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+        colorScheme: ColorScheme(
+          //上方标题栏颜色
+          primary: Const.defaultSystemThemeColor,
+          secondary: Const.defaultSystemThemeColor,
+          background: Const.defaultBarAndBodyThemColor,
+          error: Colors.red,
+          brightness: Brightness.light,
+          onBackground: Colors.pink,
+          onError: Colors.yellow,
+          //字体颜色
+          onPrimary: Const.defaultFontColor,
+          onSecondary: Colors.redAccent,
+          onSurface: Const.defaultSystemThemeColor,
+          surface: Colors.redAccent,
         ),
-        backgroundColor: ColorUtil.hexToColor("#F6FAFF"),
       ),
       initialRoute: Routers.MAIN,
       onGenerateRoute: onGenerateRoute,

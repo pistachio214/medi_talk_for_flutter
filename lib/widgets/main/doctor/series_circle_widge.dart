@@ -25,7 +25,7 @@ class _SeriesCircleWidgetState extends State<SeriesCircleWidget> {
         Positioned(
           left: off,
           child: CircleAvatar(
-            backgroundColor: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+            backgroundColor: Const.defaultSystemThemeColor,
             child: Image(
               image: const AssetImage("assets/images/avatar.png"),
               width: sizeW,
@@ -45,7 +45,7 @@ class _SeriesCircleWidgetState extends State<SeriesCircleWidget> {
       Positioned(
         left: count * 25.0,
         child: CircleAvatar(
-          backgroundColor: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+          backgroundColor: Const.defaultSystemThemeColor,
           child: SizedBox(
             child: Text(
               "$num+",

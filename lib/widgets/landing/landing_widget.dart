@@ -38,7 +38,6 @@ class _LandingWidgetState extends State<LandingWidget> {
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 24,
-                    color: ColorUtil.hexToColor("#193B68"),
                   ),
                 ),
               ),

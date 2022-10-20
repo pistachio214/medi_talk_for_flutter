@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
+import 'package:medi_talk_for_flutter/lang/routers.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/widgets/main/doctor/doctor_tag_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/doctor/series_circle_widge.dart';
@@ -13,6 +14,15 @@ class DoctorDetail extends StatefulWidget {
 }
 
 class _DoctorDetailState extends State<DoctorDetail> {
+  void _goDoctorAppointment() {
+    Navigator.pushNamed(context, Routers.DOCTOR_APPOINTMENT);
+  }
+
+  // 上一页
+  void _prevView() {
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -20,7 +30,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
     final double statusBarBottomHeight = MediaQuery.of(context).padding.bottom;
 
     return Scaffold(
-      backgroundColor: ColorUtil.hexToColor("#D0E4FF"),
+      backgroundColor: Const.defaultBarAndBodyThemColor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
@@ -37,7 +47,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         width: size.width,
                         height: 260 - statusBarTopHeight,
                         decoration: BoxDecoration(
-                          color: ColorUtil.hexToColor("#D0E4FF"),
+                          color: Const.defaultBarAndBodyThemColor,
                         ),
                         child: Image.asset(
                           "assets/images/doctor2.png",
@@ -62,9 +72,8 @@ class _DoctorDetailState extends State<DoctorDetail> {
                             }),
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                           ),
-                          color: ColorUtil.hexToColor("#193B68"),
                           icon: const BackButtonIcon(),
-                          onPressed: () {},
+                          onPressed: () => _prevView(),
                         ),
                       ),
                     ),
@@ -107,7 +116,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                             style: TextStyle(
                                               fontWeight: FontWeight.w800,
                                               fontSize: 24,
-                                              color: ColorUtil.hexToColor("#193B68"),
                                             ),
                                           ),
                                           const Text(
@@ -195,7 +203,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 24,
-                                            color: ColorUtil.hexToColor("#193B68"),
                                           ),
                                         ),
                                       ),
@@ -226,7 +233,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 24,
-                                            color: ColorUtil.hexToColor("#193B68"),
                                           ),
                                         ),
                                       ),
@@ -257,7 +263,6 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontSize: 24,
-                                            color: ColorUtil.hexToColor("#193B68"),
                                           ),
                                         ),
                                       ),
@@ -276,14 +281,14 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                   width: size.width - 25 * 2,
                                   height: 55,
                                   decoration: BoxDecoration(
-                                    color: ColorUtil.hexToColor(Const.defaultSystemThemeColor),
+                                    color: Const.defaultSystemThemeColor,
                                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                                   ),
                                   child: TextButton(
                                     style: ButtonStyle(
                                       padding: MaterialStateProperty.all(EdgeInsets.zero),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () => _goDoctorAppointment(),
                                     child: const Text(
                                       "Book an Appointmenr",
                                       style: TextStyle(
