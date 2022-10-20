@@ -21,7 +21,7 @@ class _DoctorState extends State<Doctor> {
     return Scaffold(
       backgroundColor: ColorUtil.hexToColor("#F6FAFF"),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Speclialist",
           style: TextStyle(
             fontWeight: FontWeight.w700,

@@ -17,7 +17,7 @@ class Const {
   static final Color defaultSystemThemeColor = ColorUtil.hexToColor("#1479FF");
 
   // 默认bar和背景颜色
-  static final Color defaultBarAndBodyThemColor = ColorUtil.hexToColor("#D0E4FF");
+  static final Color defaultBarAndBodyThemColor = ColorUtil.hexToColor("#F6FAFF");
 
   // 默认字体颜色
   static final Color defaultFontColor = ColorUtil.hexToColor("#193B68");

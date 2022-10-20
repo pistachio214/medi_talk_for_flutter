@@ -30,7 +30,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
     final double statusBarBottomHeight = MediaQuery.of(context).padding.bottom;
 
     return Scaffold(
-      backgroundColor: Const.defaultBarAndBodyThemColor,
+      backgroundColor: ColorUtil.hexToColor("#D0E4FF"),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
@@ -47,7 +47,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                         width: size.width,
                         height: 260 - statusBarTopHeight,
                         decoration: BoxDecoration(
-                          color: Const.defaultBarAndBodyThemColor,
+                          color: ColorUtil.hexToColor("#D0E4FF"),
                         ),
                         child: Image.asset(
                           "assets/images/doctor2.png",
@@ -88,7 +88,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                           top: 30,
                         ),
                         decoration: BoxDecoration(
-                          color: ColorUtil.hexToColor("#F6FAFF"),
+                          color: Const.defaultBarAndBodyThemColor,
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40),
@@ -111,7 +111,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: <Widget>[
-                                          Text(
+                                          const Text(
                                             "Mathew Cham",
                                             style: TextStyle(
                                               fontWeight: FontWeight.w800,
@@ -197,7 +197,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      SizedBox(
+                                      const SizedBox(
                                         child: Text(
                                           "About",
                                           style: TextStyle(
@@ -227,7 +227,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      SizedBox(
+                                      const SizedBox(
                                         child: Text(
                                           "Availability",
                                           style: TextStyle(
@@ -257,7 +257,7 @@ class _DoctorDetailState extends State<DoctorDetail> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      SizedBox(
+                                      const SizedBox(
                                         child: Text(
                                           "Reviews",
                                           style: TextStyle(
