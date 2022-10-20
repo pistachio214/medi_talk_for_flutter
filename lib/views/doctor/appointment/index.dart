@@ -27,7 +27,7 @@ class _DoctorAppointmentState extends State<DoctorAppointment> {
             fontSize: 24,
           ),
         ),
-        centerTitle: false,
+        centerTitle: true,
         backgroundColor: Const.defaultBarAndBodyThemColor,
         elevation: 0,
         leading: IconButton(
