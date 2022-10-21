@@ -32,7 +32,7 @@ class _CategoriesWarpWidgetState extends State<CategoriesWarpWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   child: Text(
                     "Categories",
                     style: TextStyle(
