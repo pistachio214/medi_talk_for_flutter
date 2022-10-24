@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
-import 'package:medi_talk_for_flutter/utils/logs_util.dart';
-import 'package:medi_talk_for_flutter/widgets/main/home/categories_item_widget.dart';
-import 'package:medi_talk_for_flutter/widgets/main/home/categories_warp_widget.dart';
 
 class DoctorAppointment extends StatefulWidget {
   const DoctorAppointment({Key? key}) : super(key: key);
