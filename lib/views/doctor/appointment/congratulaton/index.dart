@@ -207,7 +207,7 @@ class _CongratulatonState extends State<Congratulaton> {
   Widget buildItem(String icoImg, String title) {
     return Container(
       margin: const EdgeInsets.all(15),
-      width: 120,
+      width: 125,
       child: Row(
         children: <Widget>[
           Image.asset(
@@ -224,6 +224,7 @@ class _CongratulatonState extends State<Congratulaton> {
                 fontWeight: FontWeight.w600,
                 fontSize: 14,
                 color: Const.defaultFontColor,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           )
