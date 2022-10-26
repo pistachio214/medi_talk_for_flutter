@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
+import 'package:medi_talk_for_flutter/views/main/appointment/index.dart';
 import 'package:medi_talk_for_flutter/views/main/doctor/index.dart';
 import 'package:medi_talk_for_flutter/views/main/home/index.dart';
 import 'package:medi_talk_for_flutter/widgets/main/main_bottom_navigation_bar_widget.dart';
@@ -24,13 +25,18 @@ class _MainState extends State<Main> {
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.book_online),
-      label: "医生",
+      label: "医生列表",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.add_business_rounded),
+      label: "我的医生",
     ),
   ];
 
   final List<Widget> tabBodies = <Widget>[
     const Home(),
     const Doctor(),
+    const MyAppointment(),
   ];
 
   void _onTapHander(int index) {

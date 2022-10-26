@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
+import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/categories_warp_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/doctor_banner_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/main/home/top_doctor_warp_widget.dart';
@@ -17,6 +19,7 @@ class _HomeState extends State<Home> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Const.defaultBarAndBodyThemColor,
       body: SafeArea(
         child: Container(
           margin: const EdgeInsets.only(bottom: 5),
@@ -26,20 +29,23 @@ class _HomeState extends State<Home> {
               UserAndNotificationWidget(size: size),
 
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.only(top: 15),
-                        child: const DoctorBannerWidget(),
-                      ),
+                child: ScrollConfiguration(
+                  behavior: NoShadowScrollBehaviorHandle(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          margin: const EdgeInsets.only(top: 15),
+                          child: const DoctorBannerWidget(),
+                        ),
 
-                      // Categories
-                      const CategoriesWarpWidget(),
+                        // Categories
+                        const CategoriesWarpWidget(),
 
-                      // Top Doctor
-                      const TopDoctorWarpWidget(),
-                    ],
+                        // Top Doctor
+                        const TopDoctorWarpWidget(),
+                      ],
+                    ),
                   ),
                 ),
               ),

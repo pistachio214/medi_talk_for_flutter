@@ -19,7 +19,7 @@ class _DoctorState extends State<Doctor> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: ColorUtil.hexToColor("#F6FAFF"),
+      backgroundColor: Const.defaultBarAndBodyThemColor,
       appBar: AppBar(
         title: const Text(
           "Speclialist",
@@ -30,11 +30,8 @@ class _DoctorState extends State<Doctor> {
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: ColorUtil.hexToColor("#F6FAFF"),
-        leading: IconButton(
-          icon: const BackButtonIcon(),
-          onPressed: () {},
-        ),
+        backgroundColor: Const.defaultBarAndBodyThemColor,
+        leading: null,
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 25),

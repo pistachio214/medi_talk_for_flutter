@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:medi_talk_for_flutter/utils/shared_preferences_util.dart';
 import 'package:medi_talk_for_flutter/lang/routers.dart';
+import 'package:medi_talk_for_flutter/views/doctor/appointment/congratulaton/index.dart';
 import 'package:medi_talk_for_flutter/views/doctor/appointment/index.dart';
 import 'package:medi_talk_for_flutter/views/doctor/detail/index.dart';
 import 'package:medi_talk_for_flutter/views/doctor/patient/index.dart';
 import 'package:medi_talk_for_flutter/views/landing/index.dart';
 import 'package:medi_talk_for_flutter/views/login/index.dart';
+import 'package:medi_talk_for_flutter/views/main/appointment/index.dart';
 import 'package:medi_talk_for_flutter/views/main/index.dart';
 import 'package:medi_talk_for_flutter/views/signup/index.dart';
 
@@ -18,6 +20,7 @@ final Map<String, Function> routes = {
   Routers.DOCTOR_DETAIL: (context) => const DoctorDetail(),
   Routers.DOCTOR_APPOINTMENT: (context) => const DoctorAppointment(),
   Routers.PATIENT_IS_DETAILS: (context) => const PatientDetail(),
+  Routers.CONGRATULATON: (context) => const Congratulaton(),
 };
 
 final List<String> noValidationRouters = <String>[

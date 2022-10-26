@@ -20,4 +20,8 @@ class Routers {
 
   /// 患者详情
   static String PATIENT_IS_DETAILS = 'patient_is_details';
+
+  // 支付详情
+  static String CONGRATULATON = 'congratulaton';
+
 }

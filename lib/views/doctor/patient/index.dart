@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
+import 'package:medi_talk_for_flutter/lang/routers.dart';
 import 'package:medi_talk_for_flutter/widgets/from/patient_detail_input_widget.dart';
 import 'package:medi_talk_for_flutter/widgets/from/state/patient_input_state.dart';
 
@@ -52,6 +53,10 @@ class _PatientDetailState extends State<PatientDetail> {
     maxLines: 5,
     counterTextState: true,
   );
+
+  void _goAction() {
+    Navigator.pushNamed(context, Routers.CONGRATULATON);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -152,7 +157,7 @@ class _PatientDetailState extends State<PatientDetail> {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () => _goAction(),
                       child: const Text(
                         "Continue",
                         style: TextStyle(
