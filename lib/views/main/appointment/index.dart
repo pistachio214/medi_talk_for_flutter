@@ -24,7 +24,7 @@ class _MyAppointmentState extends State<MyAppointment> {
           ),
           elevation: 0,
           centerTitle: true,
-          leading: null,
+          automaticallyImplyLeading: false,
         ),
         backgroundColor: Const.defaultBarAndBodyThemColor,
         body: Container(

@@ -18,41 +18,45 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      backgroundColor: Const.defaultBarAndBodyThemColor,
-      body: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 5),
-          child: Column(
-            children: <Widget>[
-              // 头像和通知栏
-              UserAndNotificationWidget(size: size),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        backgroundColor: Const.defaultBarAndBodyThemColor,
+        body: SafeArea(
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 5),
+            child: Column(
+              children: <Widget>[
+                // 头像和通知栏
+                UserAndNotificationWidget(size: size),
 
-              Expanded(
-                child: ScrollConfiguration(
-                  behavior: NoShadowScrollBehaviorHandle(),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          margin: const EdgeInsets.only(top: 15),
-                          child: const DoctorBannerWidget(),
-                        ),
+                Expanded(
+                  child: ScrollConfiguration(
+                    behavior: NoShadowScrollBehaviorHandle(),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.only(top: 15),
+                            child: const DoctorBannerWidget(),
+                          ),
 
-                        // Categories
-                        const CategoriesWarpWidget(),
+                          // Categories
+                          const CategoriesWarpWidget(),
 
-                        // Top Doctor
-                        const TopDoctorWarpWidget(),
-                      ],
+                          // Top Doctor
+                          const TopDoctorWarpWidget(),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
+    ;
   }
 }

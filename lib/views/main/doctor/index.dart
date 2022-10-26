@@ -31,7 +31,7 @@ class _DoctorState extends State<Doctor> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Const.defaultBarAndBodyThemColor,
-        leading: null,
+        automaticallyImplyLeading: false,
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 25),
@@ -83,8 +83,7 @@ class _DoctorState extends State<Doctor> {
                           Color defaultBackgroundColor = Colors.white;
 
                           if (selectKey == selfIndex) {
-                            defaultBackgroundColor =
-                                Const.defaultSystemThemeColor;
+                            defaultBackgroundColor = Const.defaultSystemThemeColor;
                             defaultLabelColor = Colors.white;
                           }
                           if (selfIndex == 10) {
@@ -141,7 +140,7 @@ class _DoctorState extends State<Doctor> {
                         int selfIndex = index + 1;
 
                         double topMargin = 15;
-                        if(selfIndex == 1){
+                        if (selfIndex == 1) {
                           topMargin = 0;
                         }
 
