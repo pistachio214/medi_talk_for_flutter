@@ -4,6 +4,7 @@ import 'package:medi_talk_for_flutter/utils/shared_preferences_util.dart';
 import 'package:medi_talk_for_flutter/lang/routers.dart';
 import 'package:medi_talk_for_flutter/views/doctor/appointment/index.dart';
 import 'package:medi_talk_for_flutter/views/doctor/detail/index.dart';
+import 'package:medi_talk_for_flutter/views/doctor/patient/index.dart';
 import 'package:medi_talk_for_flutter/views/landing/index.dart';
 import 'package:medi_talk_for_flutter/views/login/index.dart';
 import 'package:medi_talk_for_flutter/views/main/index.dart';
@@ -16,6 +17,7 @@ final Map<String, Function> routes = {
   Routers.MAIN: (context) => const Main(),
   Routers.DOCTOR_DETAIL: (context) => const DoctorDetail(),
   Routers.DOCTOR_APPOINTMENT: (context) => const DoctorAppointment(),
+  Routers.PATIENT_IS_DETAILS: (context) => const PatientDetail(),
 };
 
 final List<String> noValidationRouters = <String>[

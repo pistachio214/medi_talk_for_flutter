@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/lang/routers.dart';
-import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 import 'package:medi_talk_for_flutter/utils/shared_preferences_util.dart';
 import 'package:medi_talk_for_flutter/widgets/from/login_and_sign_input_widget.dart';

@@ -84,7 +84,7 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
                     margin: const EdgeInsets.symmetric(vertical: 15),
                     child: Text(
                       widget.title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w800,
                         fontSize: 24,
                       ),
@@ -137,8 +137,8 @@ class _LoginOrSignupViewWidgetState extends State<LoginOrSignupViewWidget> {
                       onPressed: () => widget.actionButtonFunction(),
                       child: Text(
                         widget.actionButtonText,
-                        style: TextStyle(
-                          color: ColorUtil.hexToColor("#FFFFFF"),
+                        style: const TextStyle(
+                          color: Colors.white,
                           fontWeight: FontWeight.w700,
                           fontSize: 18,
                         ),
