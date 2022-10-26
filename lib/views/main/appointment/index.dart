@@ -99,7 +99,7 @@ class _MyAppointmentState extends State<MyAppointment> {
                 ),
               ),
               Container(
-                height: size.height - 175,
+                height: size.height - 185,
                 width: size.width - 25 * 2,
                 padding: const EdgeInsets.only(bottom: 10),
                 child: SingleChildScrollView(
