@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 import 'package:medi_talk_for_flutter/views/main/appointment/index.dart';
 import 'package:medi_talk_for_flutter/views/main/doctor/index.dart';
 import 'package:medi_talk_for_flutter/views/main/home/index.dart';
+import 'package:medi_talk_for_flutter/views/main/message/index.dart';
 import 'package:medi_talk_for_flutter/widgets/main/main_bottom_navigation_bar_widget.dart';
 
 class Main extends StatefulWidget {
@@ -31,12 +29,17 @@ class _MainState extends State<Main> {
       icon: Icon(Icons.add_business_rounded),
       label: "我的医生",
     ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.message_sharp),
+      label: "咨询列表",
+    ),
   ];
 
   final List<Widget> tabBodies = <Widget>[
     const Home(),
     const Doctor(),
     const MyAppointment(),
+    const MyMessage(),
   ];
 
   void _onTapHander(int index) {

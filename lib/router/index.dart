@@ -10,6 +10,7 @@ import 'package:medi_talk_for_flutter/views/landing/index.dart';
 import 'package:medi_talk_for_flutter/views/login/index.dart';
 import 'package:medi_talk_for_flutter/views/main/appointment/index.dart';
 import 'package:medi_talk_for_flutter/views/main/index.dart';
+import 'package:medi_talk_for_flutter/views/message/detail/index.dart';
 import 'package:medi_talk_for_flutter/views/signup/index.dart';
 
 final Map<String, Function> routes = {
@@ -21,6 +22,7 @@ final Map<String, Function> routes = {
   Routers.DOCTOR_APPOINTMENT: (context) => const DoctorAppointment(),
   Routers.PATIENT_IS_DETAILS: (context) => const PatientDetail(),
   Routers.CONGRATULATON: (context) => const Congratulaton(),
+  Routers.MESSAGE_DETAIL:(context) => const MessageDetail(),
 };
 
 final List<String> noValidationRouters = <String>[

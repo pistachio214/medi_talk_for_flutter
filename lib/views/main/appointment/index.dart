@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
-import 'package:medi_talk_for_flutter/utils/color_util.dart';
-import 'package:medi_talk_for_flutter/widgets/main/doctor/doctor_item_widget.dart';
+import 'package:medi_talk_for_flutter/widgets/main/appointment/doctor_item_widget.dart';
 
 class MyAppointment extends StatefulWidget {
   const MyAppointment({Key? key}) : super(key: key);
@@ -50,22 +49,23 @@ class _MyAppointmentState extends State<MyAppointment> {
                     Container(
                       width: 150,
                       height: 55,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      decoration: BoxDecoration(
+                        color: selectKey == 0 ? Const.defaultSystemThemeColor : Colors.white,
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
                       child: TextButton(
                         onPressed: () {
                           setState(() {
-                            // selectKey = selfIndex;
+                            selectKey = 0;
                           });
                         },
-                        child: const Text(
-                          "Upcoming",
+                        child: Text(
+                          "离线",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             overflow: TextOverflow.ellipsis,
+                            color: selectKey == 0 ? Colors.white : null,
                             // color: defaultLabelColor,
                           ),
                         ),
@@ -74,22 +74,23 @@ class _MyAppointmentState extends State<MyAppointment> {
                     Container(
                       width: 150,
                       height: 55,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      decoration: BoxDecoration(
+                        color: selectKey == 1 ? Const.defaultSystemThemeColor : Colors.white,
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                       ),
                       child: TextButton(
                         onPressed: () {
                           setState(() {
-                            // selectKey = selfIndex;
+                            selectKey = 1;
                           });
                         },
-                        child: const Text(
-                          "Past",
+                        child: Text(
+                          "在线",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             overflow: TextOverflow.ellipsis,
+                            color: selectKey == 1 ? Colors.white : null,
                             // color: defaultLabelColor,
                           ),
                         ),
@@ -102,31 +103,36 @@ class _MyAppointmentState extends State<MyAppointment> {
                 height: size.height - 185,
                 width: size.width - 25 * 2,
                 padding: const EdgeInsets.only(bottom: 10),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      ListView.builder(
-                        itemCount: 10,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (BuildContext context, int index) {
-                          int selfIndex = index + 1;
+                child: ScrollConfiguration(
+                  behavior: NoShadowScrollBehaviorHandle(),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        ListView.builder(
+                          itemCount: 10,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (BuildContext context, int index) {
+                            int selfIndex = index + 1;
 
-                          double topMargin = 15;
-                          if (selfIndex == 1) {
-                            topMargin = 0;
-                          }
+                            double topMargin = 15;
+                            if (selfIndex == 1) {
+                              topMargin = 0;
+                            }
 
-                          return DoctorItemWidget(
-                            size: size,
-                            topMargin: topMargin,
-                          );
-                        },
-                      ),
-                    ],
+                            return DoctorItemWidget(
+                              size: size,
+                              topMargin: topMargin,
+                              status: 0,
+                              selectKey: selectKey,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
