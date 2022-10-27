@@ -113,10 +113,10 @@ class _MessageDetailState extends State<MessageDetail> {
     double viewWith = size.width;
     double height = size.height;
 
-    double availableHeight = MediaQuery.of(context).size.height -
+    double availableHeight = height -
         AppBar().preferredSize.height -
-        MediaQuery.of(context).padding.top -
-        MediaQuery.of(context).padding.bottom;
+        edgeInsets.top -
+        edgeInsets.bottom;
 
     return Scaffold(
       appBar: AppBar(
