@@ -149,11 +149,31 @@ class _MessageDetailState extends State<MessageDetail> {
                         children: <Widget>[
                           _buildAcrossWidget(
                             viewWith,
-                            "hello,Ferdous",
+                            "hello,Ferdous 有什么可以帮助你的，我尽量的帮助你",
                           ),
                           _buildMySelfWidget(
                             viewWith,
                             "hello,Dr.Mathew 我的手不舒服,总是感觉很累,但是总也找不到原因",
+                          ),
+                          _buildAcrossWidget(
+                            viewWith,
+                            "Ferdous 你能发个照片吗?",
+                          ),
+                          _buildMySelfWidget(
+                            viewWith,
+                            "好的,马上发给您",
+                          ),
+                          _buildAcrossWidget(
+                            viewWith,
+                            "那你倒是发呀！",
+                          ),
+                          _buildMySelfWidget(
+                            viewWith,
+                            "我在拍呀",
+                          ),
+                          _buildMySelfWidget(
+                            viewWith,
+                            "你不要慌嘛",
                           ),
                         ],
                       ),
@@ -171,23 +191,19 @@ class _MessageDetailState extends State<MessageDetail> {
 
   Widget _buildMySelfWidget(double viewWith, String content) {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
-      constraints: const BoxConstraints(
+      margin: const EdgeInsets.only(top: 15),
+      constraints: BoxConstraints(
         minHeight: 50,
+        maxWidth: viewWith - 25 * 2,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           Align(
             child: Container(
-              margin: const EdgeInsets.only(right: 15, top: 15),
+              margin: const EdgeInsets.only(right: 15, top: 10),
               padding: const EdgeInsets.all(10),
               alignment: Alignment.centerLeft,
-              constraints: BoxConstraints(
-                minHeight: 50,
-                minWidth: 50,
-                maxWidth: viewWith - 25 * 2 - 15 - 30,
-              ),
               decoration: BoxDecoration(
                 color: Const.defaultSystemThemeColor,
                 borderRadius: const BorderRadius.only(
@@ -196,12 +212,20 @@ class _MessageDetailState extends State<MessageDetail> {
                   bottomRight: Radius.circular(15),
                 ),
               ),
-              child: Text(
-                content,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                  color: Colors.white,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: viewWith - 25 * 2 - 15 - 50,
+                  minHeight: 20,
+                  minWidth: 50,
+                ),
+                child: Text(
+                  content,
+                  softWrap: true,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -235,9 +259,10 @@ class _MessageDetailState extends State<MessageDetail> {
   // 对方的文本
   Widget _buildAcrossWidget(double viewWith, String content) {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
-      constraints: const BoxConstraints(
+      margin: const EdgeInsets.only(top: 15),
+      constraints: BoxConstraints(
         minHeight: 50,
+        maxWidth: viewWith - 25 * 2,
       ),
       child: Row(
         children: <Widget>[
@@ -264,14 +289,9 @@ class _MessageDetailState extends State<MessageDetail> {
           ),
           Align(
             child: Container(
-              margin: const EdgeInsets.only(left: 15, top: 15),
+              margin: const EdgeInsets.only(left: 15, top: 10),
               padding: const EdgeInsets.all(10),
               alignment: Alignment.centerLeft,
-              constraints: BoxConstraints(
-                minHeight: 50,
-                minWidth: 50,
-                maxWidth: viewWith - 25 * 2 - 15 - 30,
-              ),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -280,12 +300,20 @@ class _MessageDetailState extends State<MessageDetail> {
                   bottomRight: Radius.circular(15),
                 ),
               ),
-              child: Text(
-                content,
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                  color: Const.defaultFontColor,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: viewWith - 25 * 2 - 15 - 50,
+                  minHeight: 20,
+                  minWidth: 50,
+                ),
+                child: Text(
+                  content,
+                  softWrap: true,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Const.defaultFontColor,
+                  ),
                 ),
               ),
             ),
@@ -335,7 +363,8 @@ class _MessageDetailState extends State<MessageDetail> {
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                             shape: MaterialStateProperty.all(
                               const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
                               ),
                             ),
                           ),
