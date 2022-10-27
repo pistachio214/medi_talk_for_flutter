@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
-import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 
 class MessageDetail extends StatefulWidget {
   const MessageDetail({Key? key}) : super(key: key);
