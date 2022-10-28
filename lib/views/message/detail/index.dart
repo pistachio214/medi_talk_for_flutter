@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
+import 'package:medi_talk_for_flutter/model/message_item_model.dart';
 import 'package:medi_talk_for_flutter/utils/color_util.dart';
 import 'package:medi_talk_for_flutter/utils/logs_util.dart';
 
@@ -14,8 +15,12 @@ class MessageDetail extends StatefulWidget {
 class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserver {
   late final ScrollController _scrollController = ScrollController();
 
+  late final TextEditingController _sendInputEditingController = TextEditingController();
+
   //实例化
   late final FocusNode _focusNode = FocusNode();
+
+  late List<MessageItemModel> messageLists = <MessageItemModel>[];
 
   @override
   void initState() {
@@ -30,9 +35,94 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
         // 失去焦点
       } else {
         // print('得到焦点');
-        _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+
+        _scrollController.jumpTo(_scrollController.position.minScrollExtent);
+        LogsUtil.info("得到了焦点");
       }
     });
+
+    messageLists.addAll([
+      MessageItemModel(
+        1,
+        1,
+        "hello,Ferdous 有什么可以帮助你的，我尽量的帮助你",
+        "2022-10-28 10:10",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        2,
+        1,
+        "hello,Dr.Mathew 我的手不舒服,总是感觉很累,但是总也找不到原因",
+        "2022-10-28 10:12",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        1,
+        1,
+        "Ferdous 你能发个照片吗?",
+        "2022-10-28 10:15",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        2,
+        1,
+        "好的，马上发给您",
+        "2022-10-28 10:20",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        1,
+        1,
+        "那你倒是发呀",
+        "2022-10-28 10:50",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        2,
+        1,
+        "我在拍呀",
+        "2022-10-28 10:55",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        2,
+        1,
+        "你不要慌嘛",
+        "2022-10-28 10:56",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        1,
+        1,
+        "快点的，别墨迹！我个急脾气",
+        "2022-10-28 10:57",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        1,
+        1,
+        "能不能快点，我快没电了，坚持不了多久了",
+        "2022-10-28 10:57",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+      MessageItemModel(
+        2,
+        1,
+        "再催下去，我都开始手抖了",
+        "2022-10-28 10:59",
+        "assets/images/avatar.png",
+        "assets/images/doctor-item.png",
+      ),
+    ]);
   }
 
   @override
@@ -199,45 +289,34 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            _buildAcrossWidget(
-                              viewWith,
-                              "hello,Ferdous 有什么可以帮助你的，我尽量的帮助你",
-                            ),
-                            _buildMySelfWidget(
-                              viewWith,
-                              "hello,Dr.Mathew 我的手不舒服,总是感觉很累,但是总也找不到原因",
-                            ),
-                            _buildAcrossWidget(
-                              viewWith,
-                              "Ferdous 你能发个照片吗?",
-                            ),
-                            _buildMySelfWidget(
-                              viewWith,
-                              "好的,马上发给您",
-                            ),
-                            _buildAcrossWidget(
-                              viewWith,
-                              "那你倒是发呀！",
-                            ),
-                            _buildMySelfWidget(
-                              viewWith,
-                              "我在拍呀",
-                            ),
-                            _buildMySelfWidget(
-                              viewWith,
-                              "你不要慌嘛",
-                            ),
-                            _buildAcrossWidget(
-                              viewWith,
-                              "快点的，别墨迹！我个急脾气",
-                            ),
-                            _buildAcrossWidget(
-                              viewWith,
-                              "能不快点的，我快没电了，坚持不了多久了",
-                            ),
-                            _buildMySelfWidget(
-                              viewWith,
-                              "再催下去，我都开始手抖了",
+                            ListView.builder(
+                              itemCount: messageLists.length,
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (BuildContext context, int index) {
+                                Widget widget = Container(
+                                  alignment: Alignment.center,
+                                  child: const Text("没有数据"),
+                                );
+                                if (messageLists.isNotEmpty) {
+                                  switch (messageLists[index].type) {
+                                    case 1:
+                                      widget = _buildAcrossWidget(
+                                        viewWith,
+                                        messageLists[index],
+                                      );
+                                      break;
+                                    case 2:
+                                      widget = _buildMySelfWidget(
+                                        viewWith,
+                                        messageLists[index],
+                                      );
+                                      break;
+                                  }
+                                }
+
+                                return widget;
+                              },
                             ),
                           ],
                         ),
@@ -255,7 +334,21 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
   }
 
   // 我方的文本
-  Widget _buildMySelfWidget(double viewWith, String content) {
+  Widget _buildMySelfWidget(double viewWith, MessageItemModel messageItemModel) {
+    Widget childWidget = const SizedBox.shrink();
+
+    if (messageItemModel.messageType == 1) {
+      childWidget = Text(
+        messageItemModel.content,
+        softWrap: true,
+        style: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          color: Colors.white,
+        ),
+      );
+    }
+
     return Container(
       margin: const EdgeInsets.only(top: 15),
       constraints: BoxConstraints(
@@ -264,10 +357,10 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
       ),
       child: Column(
         children: <Widget>[
-          const SizedBox(
+          SizedBox(
             child: Text(
-              "2020-07-06 17:01",
-              style: TextStyle(
+              messageItemModel.createdAt,
+              style: const TextStyle(
                 color: Colors.black12,
                 fontSize: 12,
               ),
@@ -295,15 +388,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
                       minHeight: 20,
                       minWidth: 50,
                     ),
-                    child: Text(
-                      content,
-                      softWrap: true,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
-                    ),
+                    child: childWidget,
                   ),
                 ),
               ),
@@ -321,7 +406,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Image.asset(
-                      "assets/images/avatar.png",
+                      messageItemModel.mySelfAvatar,
                       width: 30,
                       height: 30,
                     ),
@@ -336,7 +421,21 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
   }
 
   // 对方的文本
-  Widget _buildAcrossWidget(double viewWith, String content) {
+  Widget _buildAcrossWidget(double viewWith, MessageItemModel messageItemModel) {
+    Widget childWidget = const SizedBox.shrink();
+
+    if (messageItemModel.messageType == 1) {
+      childWidget = Text(
+        messageItemModel.content,
+        softWrap: true,
+        style: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          color: Const.defaultFontColor,
+        ),
+      );
+    }
+
     return Container(
       margin: const EdgeInsets.only(top: 15),
       constraints: BoxConstraints(
@@ -345,10 +444,10 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
       ),
       child: Column(
         children: <Widget>[
-          const SizedBox(
+          SizedBox(
             child: Text(
-              "2020-07-06 17:01",
-              style: TextStyle(
+              messageItemModel.createdAt,
+              style: const TextStyle(
                 color: Colors.black12,
                 fontSize: 12,
               ),
@@ -370,7 +469,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Image.asset(
-                      "assets/images/doctor-item.png",
+                      messageItemModel.acrossAvatar,
                       width: 30,
                       height: 30,
                     ),
@@ -396,15 +495,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
                       minHeight: 20,
                       minWidth: 50,
                     ),
-                    child: Text(
-                      content,
-                      softWrap: true,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: Const.defaultFontColor,
-                      ),
-                    ),
+                    child: childWidget,
                   ),
                 ),
               ),
@@ -438,6 +529,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
                     children: <Widget>[
                       Expanded(
                         child: TextField(
+                          controller: _sendInputEditingController,
                           focusNode: _focusNode,
                           decoration: const InputDecoration(
                             hintText: "Type here...",
@@ -505,6 +597,25 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
   }
 
   void _sendMessage() {
+
+    String messageContent = _sendInputEditingController.text;
+
+    DateTime dateTime = DateTime.now();
+    String createdAt = dateTime.toString().substring(0, 16);
+
+    MessageItemModel model = MessageItemModel(
+      2,
+      1,
+      messageContent,
+      createdAt,
+      "assets/images/avatar.png",
+      "assets/images/doctor-item.png",
+    );
+
+    messageLists.add(model);
+
+    _sendInputEditingController.text = "";
+
     //清除输入框焦点
     FocusScope.of(context).requestFocus(FocusNode());
   }
