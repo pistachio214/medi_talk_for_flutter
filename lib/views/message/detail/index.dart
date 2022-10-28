@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:medi_talk_for_flutter/handle/no_shadow_scroll_behavior_handle.dart';
 import 'package:medi_talk_for_flutter/lang/const.dart';
 import 'package:medi_talk_for_flutter/model/message_item_model.dart';
@@ -35,9 +36,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
         // 失去焦点
       } else {
         // print('得到焦点');
-
         _scrollController.jumpTo(_scrollController.position.minScrollExtent);
-        LogsUtil.info("得到了焦点");
       }
     });
 
@@ -211,7 +210,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
   }
 
   // 构建操作按钮
-  Widget _buildAction(IconData iconData) {
+  Widget _buildAction(IconData iconData, Function fun) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
       child: Align(
@@ -228,7 +227,7 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
             style: ButtonStyle(
               padding: MaterialStateProperty.all(EdgeInsets.zero),
             ),
-            onPressed: () {},
+            onPressed: () => fun(),
             child: Icon(
               iconData,
               size: 18,
@@ -256,8 +255,12 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
         backgroundColor: Const.defaultBarAndBodyThemColor,
         centerTitle: false,
         actions: [
-          _buildAction(Icons.phone_sharp),
-          _buildAction(Icons.videocam_sharp),
+          _buildAction(Icons.phone_sharp, () {
+            EasyLoading.showToast("还未实现语音通话");
+          }),
+          _buildAction(Icons.videocam_sharp, () {
+            EasyLoading.showToast("还未实现视频通话");
+          }),
         ],
       ),
       backgroundColor: Const.defaultBarAndBodyThemColor,
@@ -597,7 +600,6 @@ class _MessageDetailState extends State<MessageDetail> with WidgetsBindingObserv
   }
 
   void _sendMessage() {
-
     String messageContent = _sendInputEditingController.text;
 
     DateTime dateTime = DateTime.now();
