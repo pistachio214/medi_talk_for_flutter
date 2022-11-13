@@ -17,7 +17,8 @@ flutter pub get
 ```
 
 ## 展示
-![image](/docs/app1.png)
+
+<img src="/docs/app1.png" width="115" height="250" /><br>
 
 
 
