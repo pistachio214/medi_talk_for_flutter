@@ -17,7 +17,7 @@ flutter pub get
 ```
 
 ## 展示
-!.[image].(/docs/app1.png)
+![image](/docs/app1.png)
 
 
 
