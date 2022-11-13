@@ -1,6 +1,7 @@
 # medi_talk_for_flutter
 
-一个在线问诊的移动端应用，可以选择医生进行在线问诊，当然这个只是我在工作之余学习flutter写的，有什么bug请大家多多包涵
+一个在线问诊的移动端应用，可以选择医生进行在线问诊<br>
+当然这个只是我在工作之余学习flutter写的，有什么bug请大家多多包涵
 
 ## 使用
 
@@ -16,10 +17,13 @@ flutter pub get
 ```
 
 ## 展示
+!.[image].(/docs/app1.png)
+
 
 
 ## LICENSE
 
+```
 MIT License
 
 Copyright (c) 2022 happy214
@@ -41,3 +45,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
