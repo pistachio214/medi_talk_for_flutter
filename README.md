@@ -18,15 +18,23 @@ flutter pub get
 
 ## 展示
 
-<img src="/docs/app1.png" width="115" height="250" />
-<img src="/docs/app2.png" width="115" height="250" />
-<img src="/docs/app3.png" width="115" height="250" /><br>
-<img src="/docs/app4.png" width="115" height="250" />
-<img src="/docs/app5.png" width="115" height="250" />
-<img src="/docs/app6.png" width="115" height="250" /><br>
-<img src="/docs/app7.png" width="115" height="250" />
-<img src="/docs/app8.png" width="115" height="250" />
-<img src="/docs/app9.png" width="115" height="250" /><br>
+<div style="display: flex;">
+    <img src="/docs/app1.png" width="115" height="250" />
+    <img src="/docs/app2.png" width="115" height="250" />
+    <img src="/docs/app3.png" width="115" height="250" />
+</div>
+
+<div style="display: flex;">
+    <img src="/docs/app4.png" width="115" height="250" />
+    <img src="/docs/app5.png" width="115" height="250" />
+    <img src="/docs/app6.png" width="115" height="250" />
+</div>
+
+<div style="display: flex;">
+    <img src="/docs/app7.png" width="115" height="250" />
+    <img src="/docs/app8.png" width="115" height="250" />
+    <img src="/docs/app9.png" width="115" height="250" />
+</div>
 
 ## LICENSE
 
